@@ -5,6 +5,7 @@ import React, { useState } from "react";
 
 const CostItem = (props) => {
   const [description, setDescription] = useState(props.description);
+  // [значение, функция для изменения этого состояния]
 
   function changeDescriptionHandler() {
     setDescription("New cost"); // description = "New cost"; & CostItem(props);
