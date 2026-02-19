@@ -3,48 +3,71 @@ import "./CostForm.css";
 
 const CostForm = () => {
 //добавление состояний
-// const [name, setName] = useState('');
-// const [amount, setAmount] = useState('');
-// const [date, setDate] = useState('');
+const [name, setName] = useState('');
+const [amount, setAmount] = useState('');
+const [date, setDate] = useState('');
 
 //альтернатиынй вариант - передаем в useState обьект
 
-const [userInput, setUserInput] = useState({
-name: '',
-amount: '',
-date: ''
-});
+// const [userInput, setUserInput] = useState({
+// name: '',
+// amount: '',
+// date: ''
+// });
 
 //добавление обработчиков событий
 const nameChangeHandler = (event) => {
-  // setName(event.target.value);
+  setName(event.target.value);
 
-  setUserInput({
-    ...userInput,
-    name: event.target.value,
-  })
+  // setUserInput({
+  //   ...userInput,
+  //   name: event.target.value
+  // })
+
+  //каждый раз когда изменение состояние зависит от предыдущего состояния, используем такой синтаксис: 
+
+  // setUserInput((previousState) => {
+  //     return {
+  //       ...previousState,
+  //     name: event.target.value,
+  //     }
+  //   })
   
   console.log(event.target.value);
 }
 
 const amountChangeHandler = (event) => {
-  // setAmount(event.target.value);
+  setAmount(event.target.value);
 
-  setUserInput({
-    ...userInput,
-    amount: event.target.value,
-  })
+  // setUserInput({
+  //   ...userInput,
+  //   amount: event.target.value,
+  // })
+
+    //   setUserInput((previousState) => {
+    //   return {
+    //     ...previousState,
+    //   amount: event.target.value,
+    //   }
+    // })
 
   console.log(event.target.value);
 }
 
 const dateChangeHandler = (event) => {
-    // setDate(event.target.value);
+    setDate(event.target.value);
 
-      setUserInput({
-    ...userInput,
-    date: event.target.value,
-  })
+  //     setUserInput({
+  //   ...userInput,
+  //   date: event.target.value,
+  // })
+
+    // setUserInput((previousState) => {
+    //   return {
+    //     ...previousState,
+    //   date: event.target.value,
+    //   }
+    // })
 
   console.log(event.target.value);
 }
