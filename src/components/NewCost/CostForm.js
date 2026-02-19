@@ -3,9 +3,9 @@ import "./CostForm.css";
 
 const CostForm = () => {
 //добавление состояний
-const [name, setName] = useState('');
-const [amount, setAmount] = useState('');
-const [date, setDate] = useState('');
+const [inputName, setInputName] = useState('');
+const [inputAmount, setInputAmount] = useState('');
+const [inputDate, setInputDate] = useState('');
 
 //альтернатиынй вариант - передаем в useState обьект
 
@@ -17,7 +17,7 @@ const [date, setDate] = useState('');
 
 //добавление обработчиков событий
 const nameChangeHandler = (event) => {
-  setName(event.target.value);
+  setInputName(event.target.value);
 
   // setUserInput({
   //   ...userInput,
@@ -37,7 +37,7 @@ const nameChangeHandler = (event) => {
 }
 
 const amountChangeHandler = (event) => {
-  setAmount(event.target.value);
+  setInputAmount(event.target.value);
 
   // setUserInput({
   //   ...userInput,
@@ -55,7 +55,7 @@ const amountChangeHandler = (event) => {
 }
 
 const dateChangeHandler = (event) => {
-    setDate(event.target.value);
+    setInputDate(event.target.value);
 
   //     setUserInput({
   //   ...userInput,
@@ -72,8 +72,21 @@ const dateChangeHandler = (event) => {
   console.log(event.target.value);
 }
 
+//предотыразаем дефолтное поведение
+  const submitHandler = (event) => {
+  event.preventDefault();
 
-return   <form>
+  const costData = {
+    name: inputName,
+    amount: inputAmount,
+    date: new Date(inputDate)
+  }
+
+  console.log(costData);
+  
+  }
+
+return   <form onSubmit={submitHandler}>
   <div className="new-cost__controls">
     <div className="new-cost__control">
       <label>Название</label>
