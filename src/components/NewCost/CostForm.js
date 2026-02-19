@@ -7,6 +7,8 @@ const [inputName, setInputName] = useState('');
 const [inputAmount, setInputAmount] = useState('');
 const [inputDate, setInputDate] = useState('');
 
+
+
 //альтернатиынй вариант - передаем в useState обьект
 
 // const [userInput, setUserInput] = useState({
@@ -72,7 +74,7 @@ const dateChangeHandler = (event) => {
   console.log(event.target.value);
 }
 
-//предотыразаем дефолтное поведение
+//предотврашаем дефолтное поведение
   const submitHandler = (event) => {
   event.preventDefault();
 
@@ -84,21 +86,26 @@ const dateChangeHandler = (event) => {
 
   console.log(costData);
   
+  //очистили поля ввода после отправки формы
+
+  setInputName('');
+  setInputAmount('');
+  setInputDate('');
   }
 
 return   <form onSubmit={submitHandler}>
   <div className="new-cost__controls">
     <div className="new-cost__control">
       <label>Название</label>
-      <input type="text" onChange={nameChangeHandler}/>
+      <input type="text" value={inputName} onChange={nameChangeHandler}/>
     </div>
         <div className="new-cost__control">
       <label>Сумма</label>
-      <input type="number" min='0.01' step='0.01' onChange={amountChangeHandler}/>
+      <input type="number" min='0.01' step='0.01' value={inputAmount}  onChange={amountChangeHandler}/>
     </div>
         <div className="new-cost__control">
       <label>Дата</label>
-      <input type="date" min='2026-01-01' max='2026-02-19' onChange={dateChangeHandler}/>
+      <input type="date" min='2026-01-01' max='2026-02-19' value={inputDate}  onChange={dateChangeHandler}/>
     </div>
     <div className="new-cost__actions">
 <button type='submit'>Добавить расход</button>
