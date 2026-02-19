@@ -1,7 +1,7 @@
 import React, {useState} from "react"; 
 import "./CostForm.css";
 
-const CostForm = () => {
+const CostForm = (props) => {
 //добавление состояний
 const [inputName, setInputName] = useState('');
 const [inputAmount, setInputAmount] = useState('');
@@ -83,9 +83,10 @@ const dateChangeHandler = (event) => {
     amount: inputAmount,
     date: new Date(inputDate)
   }
-
-  console.log(costData);
   
+  props.onSaveCostData(costData);
+  console.log(costData);
+
   //очистили поля ввода после отправки формы
 
   setInputName('');
