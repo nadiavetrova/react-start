@@ -2,25 +2,53 @@ import React, {useState} from "react";
 import "./CostForm.css";
 
 const CostForm = () => {
+//добавление состояний
+// const [name, setName] = useState('');
+// const [amount, setAmount] = useState('');
+// const [date, setDate] = useState('');
 
-const [name, setName] = useState('');
-const [amount, setAmount] = useState('');
-const [date, setDate] = useState('');
+//альтернатиынй вариант - передаем в useState обьект
 
+const [userInput, setUserInput] = useState({
+name: '',
+amount: '',
+date: ''
+});
+
+//добавление обработчиков событий
 const nameChangeHandler = (event) => {
-  setName(event.target.value);
+  // setName(event.target.value);
+
+  setUserInput({
+    ...userInput,
+    name: event.target.value,
+  })
+  
   console.log(event.target.value);
 }
 
 const amountChangeHandler = (event) => {
-  setAmount(event.target.value);
+  // setAmount(event.target.value);
+
+  setUserInput({
+    ...userInput,
+    amount: event.target.value,
+  })
+
   console.log(event.target.value);
 }
 
 const dateChangeHandler = (event) => {
-    setDate(event.target.value);
+    // setDate(event.target.value);
+
+      setUserInput({
+    ...userInput,
+    date: event.target.value,
+  })
+
   console.log(event.target.value);
 }
+
 
 return   <form>
   <div className="new-cost__controls">
@@ -37,7 +65,7 @@ return   <form>
       <input type="date" min='2026-01-01' max='2026-02-19' onChange={dateChangeHandler}/>
     </div>
     <div className="new-cost__actions">
-<button type='submit'>Добавить расход </button>
+<button type='submit'>Добавить расход</button>
     </div>
   </div>
 </form>
