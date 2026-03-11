@@ -3,6 +3,9 @@ import "./Diagram.css";
 
 
 const Diagram = (props) => {
+
+
+
 return <div className="diagram">
   {props.dataSets.map(dataSet => {
   <DiagramBar 
