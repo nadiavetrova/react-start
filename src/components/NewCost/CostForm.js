@@ -110,6 +110,7 @@ return   <form onSubmit={submitHandler}>
     </div>
     <div className="new-cost__actions">
 <button type='submit'>Добавить расход</button>
+<button type='button' onClick={props.onCancel}>Отмена</button>
     </div>
   </div>
 </form>
