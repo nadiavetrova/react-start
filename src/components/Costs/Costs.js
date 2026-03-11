@@ -6,11 +6,17 @@ import React,  {useState} from "react";
 
 const Costs = (props) => {
 
-const [selectedYear, setSelectedYear] = useState("2023");
+const [selectedYear, setSelectedYear] = useState("2026");
 
 const yearChangeHandler = (year) => {
 setSelectedYear(year);
 }
+
+
+const filteredCosts = props.costs.filter(cost => {
+  return cost.date.getFullYear().toString() === selectedYear;
+})
+
 
   return (
 <div>
@@ -18,7 +24,7 @@ setSelectedYear(year);
       {/* //констролируемый компонент CostsFilter для Costs.js
       // двустороннее связывание*/}
       <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
-      {props.costs.map(cost => <CostItem 
+      {filteredCosts.map(cost => <CostItem 
       key={cost.id}
         date={cost.date}
         description={cost.description}
